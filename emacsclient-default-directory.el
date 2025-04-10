@@ -29,9 +29,11 @@ If so, set `default-directory' buffer-locally and reset the frame parameter."
                    (message "Resetting emacsclient-default-directory frame parameter")
                    (set-frame-parameter frame 'emacsclient-default-directory nil)))))
 
-(defun emacsclient-default-directory-setup ()
+(define-minor-mode emacsclient-default-directory-mode
   "Add `emacsclient-default-directory-find-file-hook' to `find-file-hook'."
-  (add-hook 'find-file-hook 'emacsclient-default-directory-find-file-hook))
+  :global t
+  :lighter ""
+  (funcall (if emacsclient-default-directory-mode 'add-hook 'remove-hook) 'find-file-hook 'emacsclient-default-directory-find-file-hook))
 
 (provide 'emacsclient-default-directory)
 
