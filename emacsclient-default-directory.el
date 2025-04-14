@@ -27,7 +27,9 @@ If so, set `default-directory' buffer-locally and reset the frame parameter."
     (run-at-time emacsclient-default-directory-reset-timeout nil
                  (lambda ()
                    (message "Resetting emacsclient-default-directory frame parameter")
-                   (set-frame-parameter frame 'emacsclient-default-directory nil)))))
+                   (when (frame-live-p frame)
+                     (set-frame-parameter frame 'emacsclient-default-directory nil))))
+    ))
 
 (define-minor-mode emacsclient-default-directory-mode
   "Add `emacsclient-default-directory-find-file-hook' to `find-file-hook'."
