@@ -3,7 +3,7 @@
 ;; Author: Hauke Rehfeld <emacs@haukerehfeld.de>
 ;; URL: https://github.com/hrehfeld/emacs-emacsclient-default-directory
 ;; Version: 0.1
-;; Package-Requires: ((emacs "24.3"))
+;; Package-Requires: ((emacs "24.4"))
 ;; Keywords: convenience
 
 ;;; Commentary:
